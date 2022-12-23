@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const SideNavBar = () => {
 
@@ -20,11 +21,13 @@ const SideNavBar = () => {
             {/* Menu Items */}
             <div className='my-auto'>
                 {/* Home icon */}
+                <Link href={'/home'}>
                 <div className={activeIcon === 'home' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('home')}>
                     <svg className={styles.menuIcon} viewBox="0 0 28 28">
                         <path fill={activeIcon === 'home' ? 'white' : 'gray'} d="M12.5921,3.49787 C13.4147,2.83801 14.5853,2.83801 15.4079,3.49787 L23.1579,9.71462 C23.6902,10.1417 24,10.7872 24,11.4697 L24,22.75 C24,23.9926 22.9926,25 21.75,25 L19.25,25 C18.0074,25 17,23.9926 17,22.75 L17,16.25 C17,15.8358 16.6642,15.5 16.25,15.5 L11.75,15.5 C11.3358,15.5 11,15.8358 11,16.25 L11,22.75 C11,23.9926 9.99264,25 8.75,25 L6.25,25 C5.00736,25 4,23.9926 4,22.75 L4,11.4697 C4,10.7872 4.30976,10.1417 4.84212,9.71462 L12.5921,3.49787 Z"></path>
                     </svg>
                 </div>
+                </Link>
                 {/* Search Icon */}
                 <div className={activeIcon === 'search' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('search')} >
                     <svg className={styles.menuIcon} viewBox="0 0 487.95 487.95">
@@ -32,12 +35,14 @@ const SideNavBar = () => {
                     </svg>
                 </div>
                 {/* Profile Icon */}
-                <div className={activeIcon === 'profile' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('profile')}>
-                    <svg className={styles.menuIcon} viewBox="0 0 35 35">
-                        <path fill={activeIcon === 'profile' ? 'white' : 'gray'} d="M17.5,16.383a8.067,8.067,0,1,1,8.067-8.067A8.076,8.076,0,0,1,17.5,16.383Zm0-13.633a5.567,5.567,0,1,0,5.567,5.566A5.573,5.573,0,0,0,17.5,2.75Z" />
-                        <path fill={activeIcon === 'profile' ? 'white' : 'gray'} d="M31.477,34.75a1.25,1.25,0,0,1-1.23-1.037A12.663,12.663,0,0,0,17.5,22.852,12.663,12.663,0,0,0,4.753,33.713a1.25,1.25,0,0,1-2.464-.426A15.1,15.1,0,0,1,17.5,20.352,15.1,15.1,0,0,1,32.711,33.287a1.25,1.25,0,0,1-1.02,1.444A1.2,1.2,0,0,1,31.477,34.75Z" />
-                    </svg>
-                </div>
+                <Link href={'/account'}>
+                    <div className={activeIcon === 'profile' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('profile')}>
+                        <svg className={styles.menuIcon} viewBox="0 0 35 35">
+                            <path fill={activeIcon === 'profile' ? 'white' : 'gray'} d="M17.5,16.383a8.067,8.067,0,1,1,8.067-8.067A8.076,8.076,0,0,1,17.5,16.383Zm0-13.633a5.567,5.567,0,1,0,5.567,5.566A5.573,5.573,0,0,0,17.5,2.75Z" />
+                            <path fill={activeIcon === 'profile' ? 'white' : 'gray'} d="M31.477,34.75a1.25,1.25,0,0,1-1.23-1.037A12.663,12.663,0,0,0,17.5,22.852,12.663,12.663,0,0,0,4.753,33.713a1.25,1.25,0,0,1-2.464-.426A15.1,15.1,0,0,1,17.5,20.352,15.1,15.1,0,0,1,32.711,33.287a1.25,1.25,0,0,1-1.02,1.444A1.2,1.2,0,0,1,31.477,34.75Z" />
+                        </svg>
+                    </div>
+                </Link>
                 {/* Like Icon */}
                 <div className={`${activeIcon === 'like' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} mt-20`} onClick={() => setActiveIcon('like')}>
                     <svg className={styles.menuIcon} viewBox="0 0 343.422 343.422">

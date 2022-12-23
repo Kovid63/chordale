@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import SideNavBar from '../components/SideNavBar'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export default function Home() {
+  
   return (
     <>
       <Head>

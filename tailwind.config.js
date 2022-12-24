@@ -13,7 +13,7 @@ module.exports = {
         'desktop': '1280px',
     },
     fontFamily: {
-      quick: ['Quicksand'],
+      body: ['Varela Round'],
     }
   },
   plugins: [],

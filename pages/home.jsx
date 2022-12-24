@@ -18,8 +18,8 @@ const Home = () => {
     return () => clearInterval(run);
   },[bannerImageIndex])
   return (
-    <div className='flex flex-col bg-white min-h-screen w-full rounded-l-3xl'>
-        <p className='font-quick ml-10 mt-8 text-4xl'>Home</p>
+    <div className='flex flex-col bg-white min-h-screen w-11/12 mr-5 rounded-3xl'>
+        <p className='font-body ml-10 mt-8 text-4xl'>Home</p>
         <div className='relative ml-10 mt-5 h-1/3 w-1/3'>
           <Image fill quality={100} className='object-cover rounded-3xl' src={num[bannerImageIndex]}/>
         <div className='absolute right-4 top-1/2'>
@@ -29,7 +29,7 @@ const Home = () => {
         ))}
         </div>
         </div>
-        <p className='font-quick text-xl mt-5 ml-10'>Trending Right Now</p>
+        <p className='font-body text-xl mt-5 ml-10'>Trending Right Now</p>
     </div>
   )
 }

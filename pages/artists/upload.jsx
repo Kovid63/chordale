@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as IPFS from 'ipfs-core'
 
-const upload = () => {
+const Upload = () => {
 
     const [songData, setSongData] = useState({title: '', artists: ''})
     const [poster, setPoster] = useState(null);
@@ -92,4 +92,4 @@ const upload = () => {
     )
 }
 
-export default upload
+export default Upload

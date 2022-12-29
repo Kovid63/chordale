@@ -7,6 +7,8 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <audio>
+        </audio>
       </body>
     </Html>
   )

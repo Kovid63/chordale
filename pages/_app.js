@@ -3,12 +3,13 @@ import SideNavBar from '../components/SideNavBar'
 import SongCard from '../components/SongCard'
 import '../styles/globals.css'
 import * as IPFS from 'ipfs-core'
-import { ipfsRepoContext } from '../contexts/IpfsRepoContext'
+import { songContext } from '../contexts/songContext'
 
 export default function App({ Component, pageProps }) {
 
-  const [ipfs, setIpfs] = useState(null);
   const [mount, setMount] = useState(false);
+  const [card, setCard] = useState({show: false, url: '', artwork: '', title: '', artists: '', duration: 0})
+
 
   useEffect(() => {
     if (!mount) setMount(true);
@@ -18,10 +19,10 @@ export default function App({ Component, pageProps }) {
     if (!mount) return;
 
     const init = async () => {
-      if (ipfs) return;
+      //if (ipfs) return;
       //const node = await IPFS.create();
-     // const nodeId = await node.id();
-     // setIpfs(node);
+      // const nodeId = await node.id();
+      // setIpfs(node);
       //const data = await node.add('hello');
       //console.log(data);
     }
@@ -29,18 +30,15 @@ export default function App({ Component, pageProps }) {
     init();
   }, [mount]);
 
- 
 
   return (
     <>
-      <ipfsRepoContext.Provider value={{ipfs, setIpfs}}>
+      <songContext.Provider value={{ card, setCard}}>
         <div className='flex flex-row'>
-
           <SideNavBar />
           <Component {...pageProps} />
-
         </div>
         <SongCard />
-      </ipfsRepoContext.Provider>
+      </songContext.Provider>
     </>)
 }

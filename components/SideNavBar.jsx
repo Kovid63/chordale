@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const SideNavBar = () => {
 
     const [activeIcon, setActiveIcon] = useState('home');
+    const router = useRouter();
 
     const styles = {
         drawerIcon: `absolute text-white tablet:hidden mt-5 mx-2`,
@@ -16,22 +18,22 @@ const SideNavBar = () => {
         <div className='flex flex-col w-1/12 min-h-screen items-center'>
             {/*Logo*/}
             <div className='relative mt-5 h-10 w-10'>
-                <Image fill className='object-contain' src={require('../assets/logo.svg')} />
+                <Image alt='' fill className='object-contain' src={require('../assets/logo.svg')} />
             </div>
             {/* Menu Items */}
             <div className='my-auto'>
                 {/* Home icon */}
                 <Link href={'/home'}>
-                <div className={activeIcon === 'home' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('home')}>
+                <div className={router.pathname === '/home' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('home')}>
                     <svg className={styles.menuIcon} viewBox="0 0 28 28">
-                        <path fill={activeIcon === 'home' ? 'white' : 'gray'} d="M12.5921,3.49787 C13.4147,2.83801 14.5853,2.83801 15.4079,3.49787 L23.1579,9.71462 C23.6902,10.1417 24,10.7872 24,11.4697 L24,22.75 C24,23.9926 22.9926,25 21.75,25 L19.25,25 C18.0074,25 17,23.9926 17,22.75 L17,16.25 C17,15.8358 16.6642,15.5 16.25,15.5 L11.75,15.5 C11.3358,15.5 11,15.8358 11,16.25 L11,22.75 C11,23.9926 9.99264,25 8.75,25 L6.25,25 C5.00736,25 4,23.9926 4,22.75 L4,11.4697 C4,10.7872 4.30976,10.1417 4.84212,9.71462 L12.5921,3.49787 Z"></path>
+                        <path fill={router.pathname === '/home' ? 'white' : 'gray'} d="M12.5921,3.49787 C13.4147,2.83801 14.5853,2.83801 15.4079,3.49787 L23.1579,9.71462 C23.6902,10.1417 24,10.7872 24,11.4697 L24,22.75 C24,23.9926 22.9926,25 21.75,25 L19.25,25 C18.0074,25 17,23.9926 17,22.75 L17,16.25 C17,15.8358 16.6642,15.5 16.25,15.5 L11.75,15.5 C11.3358,15.5 11,15.8358 11,16.25 L11,22.75 C11,23.9926 9.99264,25 8.75,25 L6.25,25 C5.00736,25 4,23.9926 4,22.75 L4,11.4697 C4,10.7872 4.30976,10.1417 4.84212,9.71462 L12.5921,3.49787 Z"></path>
                     </svg>
                 </div>
                 </Link>
                 {/* Search Icon */}
-                <div className={activeIcon === 'search' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('search')} >
+                <div className={router.pathname === '/search' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('search')} >
                     <svg className={styles.menuIcon} viewBox="0 0 487.95 487.95">
-                        <path fill={activeIcon === 'search' ? 'white' : 'gray'} d="M481.8,453l-140-140.1c27.6-33.1,44.2-75.4,44.2-121.6C386,85.9,299.5,0.2,193.1,0.2S0,86,0,191.4s86.5,191.1,192.9,191.1c45.2,0,86.8-15.5,119.8-41.4l140.5,140.5c8.2,8.2,20.4,8.2,28.6,0C490,473.4,490,461.2,481.8,453z M41,191.4c0-82.8,68.2-150.1,151.9-150.1s151.9,67.3,151.9,150.1s-68.2,150.1-151.9,150.1S41,274.1,41,191.4z" />
+                        <path fill={router.pathname === '/search' ? 'white' : 'gray'} d="M481.8,453l-140-140.1c27.6-33.1,44.2-75.4,44.2-121.6C386,85.9,299.5,0.2,193.1,0.2S0,86,0,191.4s86.5,191.1,192.9,191.1c45.2,0,86.8-15.5,119.8-41.4l140.5,140.5c8.2,8.2,20.4,8.2,28.6,0C490,473.4,490,461.2,481.8,453z M41,191.4c0-82.8,68.2-150.1,151.9-150.1s151.9,67.3,151.9,150.1s-68.2,150.1-151.9,150.1S41,274.1,41,191.4z" />
                     </svg>
                 </div>
                 {/* Profile Icon */}

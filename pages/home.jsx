@@ -5,6 +5,7 @@ import { songContext } from '../contexts/songContext'
 
 const Home = () => {
 
+
   const num = [
     'https://i.pinimg.com/originals/a9/b3/90/a9b3905125df666bc381e002f4ff0178.jpg',
     'https://i.pinimg.com/736x/42/a5/74/42a5744c4691af02777bce7cfd6da311.jpg',
@@ -13,7 +14,24 @@ const Home = () => {
 
   const { card, setCard } = useContext(songContext);
 
+  const [mount, setMount] = useState(false);
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+      if (!mount) setMount(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mount) return;
+
+    const init = async() => {
+      const res = await fetch('/api/getSongs');
+      const result = await res.json();
+      setData(result.body)
+    }
+   
+    init();
+}, [mount]);
 
 
   const [bannerImageIndex, setBannerImageIndex] = useState(0)
@@ -26,8 +44,8 @@ const Home = () => {
     return () => clearInterval(run);
   }, [bannerImageIndex])
 
-  const songHandler = async(url) => {
-   setCard({...card, url: url, show: true});
+  const songHandler = async(url, title, artists, artwork) => {
+   setCard({...card, url: url, show: true, title: title, artists: artists, artwork: artwork});
   }
 
   
@@ -45,7 +63,23 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <p onClick={() => { songHandler('https://ipfs.io/ipfs/QmbfZUyYENs7mdyiSahCvLCXkYQPjBXo1VRY7tYSQyhRMV') }} className='font-body text-xl mt-5 ml-10'>Trending Right Now</p>
+      <p className='font-body text-xl mt-5 ml-10'>Trending Right Now</p>
+      <div className='ml-10 mt-5 font-body'>
+        {
+          data.map((song, index) => (
+            <div onClick={() => { songHandler('https://ipfs.io/ipfs/'+ song.cid, song.title, song.artists, 'https://ipfs.io/ipfs/'+song.artwork_cid) }} className='flex items-center' key={index}>
+              <p className='text-gray-600'>{index < 11 ? '0'+(index+1) : index+1}</p>
+              <div className='relative h-10 w-10 ml-2'>
+                <Image fill alt='' className='object-cover rounded-lg' src={'https://ipfs.io/ipfs/'+song.artwork_cid}/>
+              </div>
+              <div>
+                <p className='ml-5'>{song.title}</p>
+                <p className='text-gray-600 ml-5 font-body text-sm'>{song.artists}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
   )
 }

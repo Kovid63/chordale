@@ -18,7 +18,6 @@ const SongCard = () => {
         const obj = document.getElementById('player');
         if(obj != undefined){
         obj.addEventListener('loadeddata', () => {
-
             if (obj.readyState >= 2) {
                 setDuration(obj.duration)
                 obj.play();
@@ -97,11 +96,11 @@ const SongCard = () => {
                 {/* song info section */}
                 <div className='flex flex-row h-full w-1/4 items-center'>
                     <div className='relative h-12 w-12'>
-                        <Image alt='' fill className='object-cover rounded-lg' src={'https://i.pinimg.com/736x/55/8c/7b/558c7ba84531e59a1df4851ed8ac6f18.jpg'} />
+                        <Image alt='' fill className='object-cover rounded-lg' src={card.artwork} />
                     </div>
                     <div>
-                        <p className='font-body mx-2 text-white'>{`I'm good (blue)`}</p>
-                        <p className='font-body mx-2 text-[12px] text-gray-300'>{`David Guetta, Bebe Rexha`}</p>
+                        <p className='font-body mx-2 text-white'>{card.title}</p>
+                        <p className='font-body mx-2 text-[12px] text-gray-300'>{card.artists}</p>
                     </div>
                 </div>
 

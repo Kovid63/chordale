@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export const songcontext = createContext({});
+export const songContext = createContext({});

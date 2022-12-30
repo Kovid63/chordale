@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as IPFS from 'ipfs-core'
 
-const upload = () => {
+const Upload = () => {
 
     const [songData, setSongData] = useState({title: '', artists: ''})
     const [poster, setPoster] = useState(null);
@@ -38,15 +38,15 @@ const upload = () => {
 
         await (async () => {
             
-            const { cid } = await node.add(poster);
-            p_cid = cid.toString();
+            const result = await node.add(poster);
+            p_cid = result.path
             console.log(p_cid);
         })();
 
         await (async () => {
 
-            const { cid } = await node.add(audio);
-            a_cid = cid.toString();
+            const result = await node.add(audio);
+            a_cid = result.path;
             console.log(a_cid);
         })();
 
@@ -92,4 +92,4 @@ const upload = () => {
     )
 }
 
-export default upload
+export default Upload

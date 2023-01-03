@@ -17,9 +17,11 @@ const SideNavBar = () => {
     return (
         <div className='flex flex-col w-1/12 min-h-screen items-center'>
             {/*Logo*/}
-            <div className='relative mt-5 h-10 w-10'>
-                <Image alt='' fill className='object-contain' src={require('../assets/logo.svg')} />
+            <Link href={'/'}>
+            <div className='relative mt-5 h-20 w-20'>
+                <Image alt='' fill className='object-contain' src={require('../assets/logo.png')} />
             </div>
+            </Link>
             {/* Menu Items */}
             <div className='my-auto'>
                 {/* Home icon */}
@@ -38,10 +40,10 @@ const SideNavBar = () => {
                 </div>
                 {/* Profile Icon */}
                 <Link href={'/account'}>
-                    <div className={activeIcon === 'profile' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('profile')}>
+                    <div className={router.pathname === '/account' ? 'drop-shadow-[0_0px_8px_rgba(255,255,255,1)]' : ''} onClick={() => setActiveIcon('profile')}>
                         <svg className={styles.menuIcon} viewBox="0 0 35 35">
-                            <path fill={activeIcon === 'profile' ? 'white' : 'gray'} d="M17.5,16.383a8.067,8.067,0,1,1,8.067-8.067A8.076,8.076,0,0,1,17.5,16.383Zm0-13.633a5.567,5.567,0,1,0,5.567,5.566A5.573,5.573,0,0,0,17.5,2.75Z" />
-                            <path fill={activeIcon === 'profile' ? 'white' : 'gray'} d="M31.477,34.75a1.25,1.25,0,0,1-1.23-1.037A12.663,12.663,0,0,0,17.5,22.852,12.663,12.663,0,0,0,4.753,33.713a1.25,1.25,0,0,1-2.464-.426A15.1,15.1,0,0,1,17.5,20.352,15.1,15.1,0,0,1,32.711,33.287a1.25,1.25,0,0,1-1.02,1.444A1.2,1.2,0,0,1,31.477,34.75Z" />
+                            <path fill={router.pathname === '/account' ? 'white' : 'gray'} d="M17.5,16.383a8.067,8.067,0,1,1,8.067-8.067A8.076,8.076,0,0,1,17.5,16.383Zm0-13.633a5.567,5.567,0,1,0,5.567,5.566A5.573,5.573,0,0,0,17.5,2.75Z" />
+                            <path fill={router.pathname === '/account' ? 'white' : 'gray'} d="M31.477,34.75a1.25,1.25,0,0,1-1.23-1.037A12.663,12.663,0,0,0,17.5,22.852,12.663,12.663,0,0,0,4.753,33.713a1.25,1.25,0,0,1-2.464-.426A15.1,15.1,0,0,1,17.5,20.352,15.1,15.1,0,0,1,32.711,33.287a1.25,1.25,0,0,1-1.02,1.444A1.2,1.2,0,0,1,31.477,34.75Z" />
                         </svg>
                     </div>
                 </Link>

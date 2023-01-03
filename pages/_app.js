@@ -4,6 +4,7 @@ import SongCard from '../components/SongCard'
 import '../styles/globals.css'
 import * as IPFS from 'ipfs-core'
 import { songContext } from '../contexts/songContext'
+import Head from 'next/head'
 
 export default function App({ Component, pageProps }) {
 

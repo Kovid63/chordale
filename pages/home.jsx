@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { songContext } from '../contexts/songContext'
 import { ethers } from 'ethers'
+import Head from 'next/head'
 
 
 const Home = () => {
@@ -39,7 +40,7 @@ const Home = () => {
   ]
 
   const num = [
-    'https://i.pinimg.com/736x/53/1f/4f/531f4f1b591a0953acd0f071efa76b61.jpg',
+    'https://i.pinimg.com/originals/a7/5d/b4/a75db43f7f6d051378c17d562463574b.jpg',
     'https://i.ytimg.com/vi/HQjT9CEZBPM/maxresdefault.jpg',
     'https://i.pinimg.com/originals/33/77/b9/3377b9aba38987d95b0547aa073e9f6c.jpg',
   ]
@@ -84,10 +85,14 @@ const Home = () => {
 
 
   return (
+    <>
+    <Head>
+      <title>Home</title>
+    </Head>
     <div className='flex flex-row bg-white min-h-screen w-11/12 mr-5 rounded-3xl'>
       <div className='min-h-screen w-2/3'>
         <p className='font-body ml-10 mt-8 text-4xl'>Home</p>
-        <div className='relative ml-10 mt-5 h-1/3 w-11/12'>
+        <div className='relative ml-10 mt-5 h-72 w-11/12'>
           <Image alt='' sizes='' fill quality={100} className='object-cover rounded-3xl' src={num[bannerImageIndex]} />
           <div className='absolute right-4 top-1/2'>
             {num.map((num, index) => (
@@ -146,6 +151,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

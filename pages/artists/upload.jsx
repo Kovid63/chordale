@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as IPFS from 'ipfs-core'
+import Head from 'next/head';
 
 const Upload = () => {
 
@@ -65,6 +66,10 @@ const Upload = () => {
     }
 
     return (
+        <>
+    <Head>
+     <title>Artist Upload</title>
+    </Head>
         <div className={`flex flex-col min-h-screen w-11/12 mr-5 rounded-3xl bg-gray-900`}>
             <div className='mt-5 ml-10'>
                 <p className='text-3xl font-body text-white'>Hey Artist, </p>
@@ -86,6 +91,7 @@ const Upload = () => {
             </div>
             <button onClick={() => { publishHandler() }} type="button" class="text-white text-lg w-2/12 ml-10 mt-10 bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl active:translate-y-1 font-body rounded-lg px-5 text-center mr-2 mb-2">Publish</button>
         </div>
+        </>
     )
 }
 

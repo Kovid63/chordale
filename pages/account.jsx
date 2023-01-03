@@ -1,4 +1,5 @@
 import { ethers } from 'ethers';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
@@ -15,6 +16,10 @@ const Account = () => {
   }
 
   return (
+    <>
+    <Head>
+    <title>Account</title>
+    </Head>
     <div className={`flex bg-[url('https://wallpaperaccess.com/full/3197748.jpg')] min-h-screen w-11/12 mr-5 rounded-3xl`}>
       <div className='flex flex-col w-1/2'>
       <p className='text-white font-body ml-10 mt-8 text-4xl'>Connect To Wallet</p>
@@ -43,6 +48,7 @@ const Account = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

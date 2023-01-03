@@ -16,6 +16,7 @@
     "@next/font": "13.1.0",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.0",
+    "ethers": "^5.7.2",
     "ipfs-core": "^0.17.0",
     "ipfs-http-client": "^59.0.0",
     "mongoose": "^6.8.2",

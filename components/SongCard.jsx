@@ -99,8 +99,8 @@ const SongCard = () => {
                         <Image alt='' fill className='object-cover rounded-lg' src={card.artwork} />
                     </div>
                     <div>
-                        <p className='font-body mx-2 text-white'>{card.title}</p>
-                        <p className='font-body mx-2 text-[12px] text-gray-300'>{card.artists}</p>
+                        <p className='font-body mx-2 text-[10px] text-white'>{card.title}</p>
+                        <p className='font-body mx-2 text-[8px] text-gray-300'>{card.artists}</p>
                     </div>
                 </div>
 

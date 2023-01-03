@@ -34,7 +34,7 @@ const Upload = () => {
 
         if(poster == null || audio == null || songData.title.length == 0 || songData.artists.length == 0) return;
 
-        const node = await IPFS.create();
+        const node = await IPFS.create({repo: 'Cipher'});
 
         await (async () => {
             
@@ -44,7 +44,6 @@ const Upload = () => {
         })();
 
         await (async () => {
-
             const result = await node.add(audio);
             a_cid = result.path;
             console.log(a_cid);
@@ -62,9 +61,7 @@ const Upload = () => {
                 cid: a_cid,
             })
         });
-
         console.log(res.status);
-
     }
 
     return (

@@ -1,0 +1,5 @@
+current project: 
+https://cloudflare-ipfs.com/ipfs/{CID}
+
+other public gateways: 
+https://ipfs.github.io/public-gateway-checker/

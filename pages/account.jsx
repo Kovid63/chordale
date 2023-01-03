@@ -1,4 +1,5 @@
 import { ethers } from 'ethers';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
@@ -14,7 +15,8 @@ const Account = () => {
   }
 
   return (
-    <div className={`flex flex-col bg-[url('https://wallpaperaccess.com/full/3197748.jpg')] min-h-screen w-11/12 mr-5 rounded-3xl`}>
+    <div className={`flex bg-[url('https://wallpaperaccess.com/full/3197748.jpg')] min-h-screen w-11/12 mr-5 rounded-3xl`}>
+      <div className='flex flex-col w-1/2'>
       <p className='text-white font-body ml-10 mt-8 text-4xl'>Connect To Wallet</p>
       <div className='mt-10 ml-10'>
         {
@@ -28,11 +30,17 @@ const Account = () => {
             :
             <>
             <p className='text-gray-400 text-xl font-body'>Please connect your wallet by clicking below</p>
-              <div onClick={() => { connectWallet() }} className='flex mt-10 cursor-pointer items-center justify-center rounded-full h-10 w-1/6 border-2 border-violet-800'>
+              <div onClick={() => { connectWallet() }} className='flex mt-10 cursor-pointer items-center justify-center rounded-full h-10 w-1/3 border-2 border-violet-800'>
                 <p className='text-white text-xl font-body'>Connect Wallet</p>
               </div>
             </>
         }
+      </div>
+      </div>
+      <div className='flex w-1/2 justify-center'>
+        <div id='herro' className='relative h-full w-full'>
+          <Image fill src={require('../assets/herro.svg')}/>
+        </div>
       </div>
     </div>
   )

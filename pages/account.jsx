@@ -15,17 +15,20 @@ const Account = () => {
 
   return (
     <div className={`flex flex-col bg-[url('https://wallpaperaccess.com/full/3197748.jpg')] min-h-screen w-11/12 mr-5 rounded-3xl`}>
-      <p className='text-white font-quick ml-10 mt-8 text-4xl'>Account</p>
+      <p className='text-white font-body ml-10 mt-8 text-4xl'>Connect To Wallet</p>
       <div className='mt-10 ml-10'>
         {
           wallet ?
             <>
-              <p className='text-white font-body'>Connected: {wallet}</p>
-              <Link href={'/artists/upload'}><p className='text-gray-300 mt-10 text-xl font-body'>Artist? Let's listen your story</p></Link>
+              <p className='text-gray-400 text-xl font-body'>Wallet connected</p>
+              <p className='text-violet-600 font-body'>Address: {wallet}</p>
+              <p className='text-gray-300 mt-10 text-xl font-body'>Are you an artist?</p>
+              <Link href={'/artists/upload'}><p className='text-violet-600 font-body'>Click here</p> </Link>
             </>
             :
             <>
-              <div onClick={() => { connectWallet() }} className='flex cursor-pointer items-center justify-center rounded-md h-14 w-1/5 border-2 border-gray-500'>
+            <p className='text-gray-400 text-xl font-body'>Please connect your wallet by clicking below</p>
+              <div onClick={() => { connectWallet() }} className='flex mt-10 cursor-pointer items-center justify-center rounded-full h-10 w-1/6 border-2 border-violet-800'>
                 <p className='text-white text-xl font-body'>Connect Wallet</p>
               </div>
             </>
